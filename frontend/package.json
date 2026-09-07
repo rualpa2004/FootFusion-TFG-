@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "test": "vitest",
+    "test": "vitest run --passWithNoTests",
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview"
