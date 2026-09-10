@@ -1,0 +1,13 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+MONGODB_URI = os.getenv("MONGODB_URI")
+MONGODB_DB_NAME = os.getenv("MONGODB_DB_NAME")
+
+THESPORTSDB_API_KEY = os.getenv("THESPORTSDB_API_KEY")
+THESPORTSDB_BASE_URL = os.getenv("THESPORTSDB_BASE_URL")
+
+APIFOOTBALL_API_KEY = os.getenv("APIFOOTBALL_API_KEY")
+APIFOOTBALL_BASE_URL = os.getenv("APIFOOTBALL_BASE_URL")
