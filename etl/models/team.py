@@ -1,0 +1,9 @@
+from dataclasses import dataclass
+
+@dataclass
+class Team:
+    external_id: int
+    name: str
+    logo: str
+    type: str
+    competition_id: int
