@@ -7,3 +7,4 @@ class Team:
     logo: str
     type: str
     competition_id: int
+    highlightly_id: int = None

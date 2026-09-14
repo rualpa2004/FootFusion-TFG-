@@ -8,3 +8,4 @@ class Competition:
     country_name: str
     country_code: str
     country_logo: str
+    footballdata_code: str
