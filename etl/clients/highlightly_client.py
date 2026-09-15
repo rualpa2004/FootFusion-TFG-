@@ -18,6 +18,10 @@ class HighlightlyClient:
             params["country_name"] = country_name
         return make_request(url, self.headers, params)
 
+    def get_league_by_id(self, league_id):
+        url = f"{self.base_url}/leagues/{league_id}"
+        return make_request(url, self.headers)
+
     def get_teams_by_league(self, league_id, season):
         url = f"{self.base_url}/standings"
         params = {"leagueId": league_id, "season": season}
@@ -25,7 +29,7 @@ class HighlightlyClient:
 
     def get_fixtures(self, league_id, season, round_name = None, limit = 100, offset = 0):
         url = f"{self.base_url}/matches"
-        params = {"league": league_id, "season": season, "limit": limit, "offset": offset}
+        params = {"leagueId": league_id, "season": season, "limit": limit, "offset": offset}
         response = make_request(url, self.headers, params)
 
         if round_name and isinstance(response, dict) and "data" in response:
