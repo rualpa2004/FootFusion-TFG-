@@ -8,3 +8,5 @@ class Team:
     type: str
     competition_id: int
     highlightly_id: int = None
+    coach_name: str = None
+    coach_nationality: str = None

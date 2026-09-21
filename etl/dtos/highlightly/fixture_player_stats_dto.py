@@ -13,7 +13,7 @@ class FixturePlayerStatsDTO:
 
     @staticmethod
     def from_api(player_data: dict) -> "FixturePlayerStatsDTO":
-        stats = player_data["statistics"][0] if player_data.get("statistics") else {}
+        stats = player_data.get("statistics", {})
         return FixturePlayerStatsDTO(
             player_id = player_data["id"],
             player_name = player_data["name"],

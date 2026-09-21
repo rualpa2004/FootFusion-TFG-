@@ -18,4 +18,6 @@ def adapt_team_from_footballdata(dto: FootballDataTeamDTO, competition_id: int) 
         logo = dto.logo,
         type = "club",
         competition_id = competition_id,
+        coach_name = dto.coach_name,
+        coach_nationality = dto.coach_nationality
     )

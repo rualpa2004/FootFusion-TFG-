@@ -13,3 +13,4 @@ class Player:
     height: str
     position: str
     team_id: int
+    highlightly_id: int = None
