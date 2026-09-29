@@ -26,10 +26,10 @@ export class Offer {
     // The user making the offer (if null the offer is auto-generated)
     @ManyToOne(() => User, (user) => user.offers, {nullable: true})
     @JoinColumn({name: 'userId'})
-    user!: User;
+    user?: User | null;
 
-    @Column()
-    userId!: number;
+    @Column({type: 'int', nullable: true})
+    userId?: number | null;
 
     // Market listing this offer is made against
     @ManyToOne(() => Market, (market) => market.offers, {nullable: false})

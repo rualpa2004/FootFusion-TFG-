@@ -1,5 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany} from 'typeorm';
 import {TeamFantasy} from './team-fantasy.entity';
+import {PlayerProperty} from './player-property.entity';
 
 @Entity("leagues")
 export class League {
@@ -27,4 +28,7 @@ export class League {
 
     @OneToMany(() => TeamFantasy, (teamFantasy) => teamFantasy.league)
     teamsFantasy!: TeamFantasy[];
+
+    @OneToMany(() => PlayerProperty, (playerProperty) => playerProperty.league)
+    playerProperties!: PlayerProperty[];
 }

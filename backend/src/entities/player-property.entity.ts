@@ -1,10 +1,13 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, JoinColumn} from 'typeorm';
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, JoinColumn, Unique} from 'typeorm';
 import {TeamFantasy} from './team-fantasy.entity';
+import {League} from './league.entity';
 import {Offer} from './offer.entity';
 import {Market} from './market.entity';
 import {History} from './history.entity';
 
+// Each real player has one PlayerProperty per league
 @Entity("player_properties")
+@Unique(['externalPlayerId', 'league'])
 export class PlayerProperty {
 
     @PrimaryGeneratedColumn()
@@ -12,6 +15,13 @@ export class PlayerProperty {
 
     @Column()
     externalPlayerId!: number;
+
+    @ManyToOne(() => League, (league) => league.playerProperties, {nullable: false})
+    @JoinColumn({name: 'leagueId'})
+    league!: League;
+
+    @Column()
+    leagueId!: number;
 
     // Null means the player is a free agent (no fantasy team owns it yet)
     @ManyToOne(() => TeamFantasy, (teamFantasy) => teamFantasy.players, {nullable: true})

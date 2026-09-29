@@ -27,21 +27,21 @@ export class History {
     @Column()
     playerPropertyId!: number;
 
-    // The user who acquires the player. Can be true which means he will be RETURNED_TO_MARKET
+    // The user who acquires the player. Null means the player was RETURNED_TO_MARKET
     @ManyToOne(() => User, (user) => user.acquisitions, {nullable: true})
     @JoinColumn({name: 'userId'})
-    user!: User;
+    user?: User | null;
 
-    @Column()
-    userId!: number;
+    @Column({type: 'int', nullable: true})
+    userId?: number | null;
 
-    // The user who owned the player before the transfer (free agents have no previous owner)
+    // The user who owned the player before the transfer. Null means the player hadn't previous owner
     @ManyToOne(() => User, (user) => user.sales, {nullable: true})
     @JoinColumn({name: 'previousOwnerId'})
-    previousOwner?: User;
+    previousOwner?: User | null;
 
-    @Column({nullable: true})
-    previousOwnerId?: number;
+    @Column({type: 'int', nullable: true})
+    previousOwnerId?: number | null;
 
     @Column('int')
     price!: number;
