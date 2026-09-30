@@ -5,6 +5,16 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
+import { UserModule } from './modules/user.module';
+import { BanModule } from './modules/ban.module';
+import { TeamFantasyModule } from './modules/team-fantasy.module';
+import { NotificationModule } from './modules/notification.module';
+import { PlayerPropertyModule } from './modules/player-property.module';
+import { MarketModule } from './modules/market.module';
+import { LeagueModule } from './modules/league.module';
+import { HistoryModule } from './modules/history.module';
+import { OfferModule } from './modules/offer.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({isGlobal: true}),
@@ -28,7 +38,16 @@ import { AppService } from './app.service';
       useFactory: (configService: ConfigService) => ({
         uri: configService.get<string>('DB_MONGO_URI')
       })
-    })
+    }),
+    UserModule,
+    BanModule,
+    TeamFantasyModule,
+    NotificationModule,
+    PlayerPropertyModule,
+    MarketModule,
+    LeagueModule,
+    HistoryModule,
+    OfferModule
   ],
   controllers: [AppController],
   providers: [AppService],
