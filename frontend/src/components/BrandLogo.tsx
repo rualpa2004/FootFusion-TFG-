@@ -9,7 +9,6 @@ type BrandLogoProps =
     | {
         /** Main logo (flags + "FOOTFUSION" + tagline) or horizontal logo (flags on the left, text on the right). */
         variant: 'main' | 'horizontal';
-        /** Classes of the <img>; use them to set the size (e.g. "w-80 h-auto"). */
         className?: string;
     }
     | {

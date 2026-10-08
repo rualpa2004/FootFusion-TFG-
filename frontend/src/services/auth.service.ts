@@ -24,7 +24,7 @@ const AUTH_ERROR_MESSAGES: Record<string, string> = {
 }
 
 function matchError(error: unknown): Error {
-    // The user only sees a friendly message, so keep the original error visible for debugging.
+    // Show the error at console to developers
     console.error('Authentication request failed', error);
 
     if (error instanceof FirebaseError) {

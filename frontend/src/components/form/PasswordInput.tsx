@@ -7,10 +7,7 @@ interface PasswordInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
 }
 
 export function PasswordInput(props: PasswordInputProps) {
-    // useState is justified here: whether the password is visible is ephemeral UI state that
-    // lives only in this component. It is not data loaded from anywhere (so a loader does not
-    // apply) and it is not sent anywhere (so an action does not apply). Toggling it must
-    // re-render the input with type="text" or type="password", which requires React state.
+    //This useState is to change the password view from hidden view to show it to the user
     const [isVisible, setIsVisible] = useState(false);
 
     return (

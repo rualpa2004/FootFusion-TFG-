@@ -8,10 +8,7 @@ interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
     trailing?: ReactNode;
 }
 
-/**
- * Uncontrolled input styled as in the designs. It does not keep its value in React state:
- * the route action reads it from the submitted FormData through its `name` attribute.
- */
+/** Input field styled as in the designs. Its value is not stored in React state: it is sent with the form and the route action reads it by its name attribute */
 export function TextInput({icon: Icon, hasError = false, trailing, id, ...inputProps}: TextInputProps) {
     return (
         <div
